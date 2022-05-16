@@ -7,16 +7,21 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("first app"),
+        title: Text("First App"),
       ),
       drawer: Drawer(),
       body: Center(
         child: Container(
-          child: Text("My new Project Starttoday"),
+          child: Text(
+            "My new Project Start today",
+            style: TextStyle(
+              fontSize: 30,
+              color: Colors.blue,
+              fontWeight: FontWeight.bold,
+            ),
+          ),
         ),
       ),
     );
   }
 }
-
-    
