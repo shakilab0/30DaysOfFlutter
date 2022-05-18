@@ -4,7 +4,7 @@ import 'package:m_app1/pages/home_page.dart';
 import 'package:m_app1/pages/login_page.dart';
 import 'package:m_app1/utils/routes.dart';
 
-void main(){
+void main() {
   runApp(const MyApp());
 }
 
@@ -15,25 +15,20 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-
       themeMode: ThemeMode.dark,
       darkTheme: ThemeData(
         brightness: Brightness.light,
       ),
       theme: ThemeData(
-          primarySwatch: Colors.deepOrange,
+        primarySwatch: Colors.deepOrange,
         fontFamily: GoogleFonts.lato().fontFamily,
-        // primaryTextTheme: GoogleFonts.latoTextTheme(),
       ),
-
-      initialRoute: "/",
-
+      initialRoute: MyRoutes.homeRoute,
       routes: {
-        "/": (context)=>LoginPage(),
-         MyRoutes.homeRoute: (context)=>HomePage(),
-         MyRoutes.loginRoute: (context)=>LoginPage(),
+        "/": (context) => LoginPage(),
+        MyRoutes.homeRoute: (context) => HomePage(),
+        MyRoutes.loginRoute: (context) => LoginPage(),
       },
-
     );
   }
 }
