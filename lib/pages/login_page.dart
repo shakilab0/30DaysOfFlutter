@@ -16,6 +16,7 @@ class _LoginPageState extends State<LoginPage> {
 
   moveToHome(BuildContext context) async {
     if (_formKey.currentState!.validate()) {
+      // '!' why
       setState(() {
         changeButton = true;
       });
@@ -37,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
           child: Column(
             children: [
               Image.asset(
-                "images/login_page.png",
+                "assets/images/login_page.png",
                 fit: BoxFit.cover,
               ),
               SizedBox(
@@ -63,12 +64,9 @@ class _LoginPageState extends State<LoginPage> {
                           hintText: "Enter Name",
                           labelText: "User Name",
                         ),
-
-                        // validator: (value) =>
-                        //     value!.isEmpty ? "Username is empty" : null,
-
                         validator: (value) {
                           if (value!.isEmpty) {
+                            //  '!' why
                             return "Username is empty";
                           }
                           return null;
@@ -83,14 +81,9 @@ class _LoginPageState extends State<LoginPage> {
                         hintText: "Enter Password",
                         labelText: "Password",
                       ),
-
-                      // validator: (value) =>
-                      //     value!.isEmpty ? "Password is empty" : null,
-                      // validator: (value) =>
-                      //     value!.length < 6 ? "input 6 char.." : null,
-
                       validator: (value) {
                         if (value!.isEmpty) {
+                          //  '!' why
                           return " Password is empty";
                         } else if (value.length < 6) {
                           return " Password length should be 6";
