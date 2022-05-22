@@ -18,8 +18,6 @@ class ItemWidget extends StatelessWidget {
         },
         leading: Image.network("${item!.image}"),
         // (item.image) ay rokom deta parbo na kano
-        title: Text("${item!.name}"),
-        // (item.image) ay rokom deta parbo na kano
         subtitle: Text("${item!.description}"),
         // (item.image) ay rokom deta parbo na kano
         trailing: Text(
