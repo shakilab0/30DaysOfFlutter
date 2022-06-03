@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:m_app1/models/catalog.dart';
-import 'package:m_app1/widgets/themes.dart';
 import 'package:velocity_x/velocity_x.dart';
 
 class HomeDetailPage extends StatelessWidget {
@@ -13,10 +12,12 @@ class HomeDetailPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
-      backgroundColor: MyTheme.creamColor,
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
+      backgroundColor: context.canvasColor,
       bottomNavigationBar: Container(
-        color: Colors.white,
+        color: context.cardColor,
         child: ButtonBar(
           alignment: MainAxisAlignment.spaceBetween,
           buttonPadding: EdgeInsets.zero,
@@ -25,13 +26,14 @@ class HomeDetailPage extends StatelessWidget {
             ElevatedButton(
                     onPressed: () {},
                     style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(MyTheme.darkBluishColor),
+                        backgroundColor: MaterialStateProperty.all(
+                            // ignore: deprecated_member_use
+                            context.theme.buttonColor),
                         shape: MaterialStateProperty.all(
                           StadiumBorder(),
                         )),
-                    child: "Buy".text.xl.make())
-                .wh(100, 60),
+                    child: "Add to Cart".text.xl.make())
+                .wh(150, 60),
           ],
         ).p32(),
       ),
@@ -49,14 +51,14 @@ class HomeDetailPage extends StatelessWidget {
               edge: VxEdge.TOP,
               arcType: VxArcType.CONVEY,
               child: Container(
-                color: Colors.white,
+                color: context.cardColor,
                 width: context.screenWidth,
                 child: Column(
                   children: [
                     "${catalog!.name}"
                         .text
                         .xl4
-                        .color(MyTheme.darkBluishColor)
+                        .color(context.accentColor)
                         .bold
                         .make(),
                     "${catalog!.description}"
@@ -65,6 +67,11 @@ class HomeDetailPage extends StatelessWidget {
                         .xl
                         .make(),
                     10.heightBox,
+                    "This may sound like an obvious one, but you should be able to find some mention of the phone or its model number on the phone, or among the things you found in the box. The box itself is also a great indicator,"
+                        .text
+                        .textStyle(context.captionStyle!)
+                        .make()
+                        .p16()
                   ],
                 ).py64(),
               ),

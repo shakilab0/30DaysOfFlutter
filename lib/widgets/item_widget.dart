@@ -2,11 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:m_app1/models/catalog.dart';
 
 class ItemWidget extends StatelessWidget {
-  final Item? item; //  '?' why
+  final Item? item; //
 
-  const ItemWidget(
-      {Key? key, @required this.item}) //ay error solve korer jonno 5 line a "?"
-      //'?' dela aber aro 4 ta error oi error solve korar jonno '!' use korta hoy
+  const ItemWidget({Key? key, @required this.item})
       : assert(item != null),
         super(key: key);
 
@@ -15,12 +13,10 @@ class ItemWidget extends StatelessWidget {
     return Card(
       child: ListTile(
         onTap: () {
-          print("${item!.name} pressed"); // '!'  why
+          print("${item!.name} pressed");
         },
         leading: Image.network("${item!.image}"),
-        // (item.image) ay rokom deta parbo na kano
         subtitle: Text("${item!.description}"),
-        // (item.image) ay rokom deta parbo na kano
         trailing: Text(
           "\$${item!.price}",
           style: TextStyle(
